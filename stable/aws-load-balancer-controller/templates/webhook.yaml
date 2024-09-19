@@ -205,6 +205,13 @@ webhooks:
     resources:
     - ingresses
   sideEffects: None
+  {{- if .Values.webhookIgnoredNamespaces }}
+  namespaceSelector:
+    matchExpressions:
+      - key: kubernetes.io/metadata.name
+        operator: NotIn
+        values: {{ .Values.webhookIgnoredNamespaces }}
+  {{- end }}
 ---
 {{- if not $.Values.enableCertManager }}
 apiVersion: v1

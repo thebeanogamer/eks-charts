@@ -427,3 +427,6 @@ loadBalancerClass:
 
 # creator will disable helm default labels, so you can only add yours
 # creator: "me"
+
+# namespaces to ignore for webhook calls
+webhookIgnoredNamespaces: []
